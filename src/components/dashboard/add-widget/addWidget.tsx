@@ -2,6 +2,6 @@ import React from 'react';
 
 export const AddWidget = () => {
     return <div>
-        <button>Add Widget</button>
+        <button>Add Widge</button>
         </div>
 }
