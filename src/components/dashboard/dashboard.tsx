@@ -13,6 +13,7 @@ export default function Dashboard () {
         { i: "c", x: 4, y: 0, w: 1, h: 2 }
       ];
       const {width} = window.screen;
+      
 
       return (
         <Domain>
