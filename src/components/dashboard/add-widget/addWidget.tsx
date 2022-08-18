@@ -1,25 +1,20 @@
-import React, { SyntheticEvent } from 'react';
+import React, { SyntheticEvent, useContext } from 'react';
+//import randomstring from 'randomstring';
 import { DomainConsumerType, DomainContext, DomainDefinition } from '../domain/domain';
 
 export const AddWidget = () => {
-    const onAddWidget = (e: SyntheticEvent, domain: DomainDefinition, setDomain:any) => {
-        setDomain({
+    const {domain, updateDomain} = useContext(DomainContext);
+    const onAddWidget = (e: SyntheticEvent) => {
+        const newId = Math.floor(Math.random()*1000).toString();
+        updateDomain({
             ...domain,
-            widgets: [...domain.widgets, {id: "e"}],
+            widgets: [...domain.widgets, {id: newId, url: '', type:'iframe' }],
             layout: [...domain.layout, 
-            { i: "d", x: 4, y: 0, w: 1, h: 2 } 
+            { i: newId, x: 0, y: 0, w: 1, h: 2 } 
             ]
         })
     };
-    return <div>
-        <DomainContext.Consumer>
-            {({domain, updateDomain}:DomainConsumerType) => {
-                return <>
-                        Widgets : {domain.widgets.length}
-
-                    <button onClick={(e) => onAddWidget(e, domain, updateDomain)}>Add Widget</button>
-                </>
-            }}
-        </DomainContext.Consumer>
-        </div>
+    return <>
+        < button onClick={(e) => onAddWidget(e)}>Add Widget</button>
+    </>
 }

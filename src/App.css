@@ -1,4 +1,29 @@
 .widget-container {
-  border: 1px solid red;
+  border: 1px solid gray;
   overflow: hidden;
+  padding: 5px;
+}
+
+.controls-wrapper {
+  padding: 5px;
+}
+
+.controls {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  padding-bottom: 1em;
+  display: inline-flex;
+  border-spacing: 1ch;
+}
+
+.controls button {
+  flex: 1;
+}
+
+.controls .spacer {
+  flex-grow: 1;
+}
+
+button.btn-toggle-dashboard-mode {
+  flex: 1;
 }

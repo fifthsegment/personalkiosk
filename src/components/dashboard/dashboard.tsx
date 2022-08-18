@@ -15,7 +15,7 @@ export default function Dashboard () {
             <>
             <Controls />
             <Grid />
-        </>
+          </>
         </Domain>
       );
 }
