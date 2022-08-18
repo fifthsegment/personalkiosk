@@ -1,7 +1,22 @@
+import { dashboardMode } from "../dashboard/domain/domain";
+import { WidgetDefinition } from "../types";
+import { WidgetEditer } from "./widget-editer/widget-editer";
+import { WidgetIframe } from "./widget-iframe/WidgetIframe";
+
 type WidgetProps = {
-    id? : string
+    id : string
+    data: undefined | WidgetDefinition,
+    mode: dashboardMode
 };
-export default function Widget({id}: WidgetProps) {
-    return <div className="widget" key={id}>
-        <iframe scrolling="no"  style={{overflow:"hidden", width:"100%",border:0,margin:0,padding:0}} src="https://www.clocklink.com/html5embed.php?clock=013&timezone=ACST&color=green&size=100&Title=&Message=&Target=&From=2022,1,1,0,0,0&Color=green"></iframe></div>
+export default function Widget({id, mode, data}: WidgetProps) {
+    if (mode === 'EDITING') {
+        return <WidgetEditer key={id} id={id} data={data}/>
+    }
+    switch(data?.type) {
+        case 'iframe':
+            return <WidgetIframe id={id} data={data} />
+        default:
+        return <>Empty</>
+    }
+    
 }
