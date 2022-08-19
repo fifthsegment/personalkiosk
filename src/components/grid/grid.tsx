@@ -26,7 +26,7 @@ export default function Grid () {
                             const widgetProps = domain.widgets.find((widget) => {
                                 return widget.id == item.i;
                             })
-                            return <div key={item.i}  className="widget-container">
+                            return <div key={item.i}  className="card widget-container">
                                 <Widget data={widgetProps} mode={mode} id={item.i}/>
                             </div>
                         })}

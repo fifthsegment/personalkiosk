@@ -15,6 +15,6 @@ export const AddWidget = () => {
         })
     };
     return <>
-        < button onClick={(e) => onAddWidget(e)}>Add Widget</button>
+        <button type="button" className="btn btn-primary" onClick={(e) => onAddWidget(e)}>Add Widget</button>
     </>
 }
