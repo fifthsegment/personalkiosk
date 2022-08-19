@@ -10,6 +10,6 @@ export const EditDashboard = () => {
         updateDomain({...domain, mode: mode === 'VIEWING' ? 'EDITING' : 'VIEWING'})
     }
     return <>
-            <button className="btn-toggle-dashboard-mode" onClick={toggleDashboardMode}> {mode === 'VIEWING'? 'Edit' : 'Save'} Dashboard</button>
+            <button className="btn btn-secondary btn-toggle-dashboard-mode" onClick={toggleDashboardMode}> {mode === 'VIEWING'? 'Edit' : 'Save'} Dashboard</button>
         </>
 }

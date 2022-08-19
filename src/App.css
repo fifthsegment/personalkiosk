@@ -1,5 +1,4 @@
 .widget-container {
-  border: 1px solid gray;
   overflow: hidden;
   padding: 5px;
 }
@@ -26,4 +25,15 @@
 
 button.btn-toggle-dashboard-mode {
   flex: 1;
+}
+
+.widget-iframe {
+  height: 100%;
+  flex-grow: 1;
+}
+
+.widget-iframe-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
