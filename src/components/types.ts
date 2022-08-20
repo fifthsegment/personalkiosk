@@ -31,3 +31,13 @@ export type DomainDefinition = {
   mode: DashboardMode;
   layout: LayoutDefinition[];
 };
+
+export type ApplicationContextDataType = {
+    dismissedChromeExtAlert : boolean
+    
+}
+
+export type ApplicationContextType = {
+    update: (data:ApplicationContextDataType) => void
+    data: ApplicationContextDataType
+}

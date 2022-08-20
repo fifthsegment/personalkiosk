@@ -7,13 +7,13 @@ type NavBarProps = {
 export const Navbar = ({ items }: NavBarProps) => {
   return (
     <nav
-      className="navbar navbar-main navbar-expand-lg px-0 mx-4 border-radius-xl position-sticky blur shadow-blur mt-4 left-auto top-1 z-index-sticky"
+      className="navbar navbar-main navbar-expand-lg px-0 mx-4 border-radius-xl position-sticky blur shadow-blur mt-4 left-auto top-1 z-index-sticky bg-gradient-dark"
       id="navbarBlur"
       navbar-scroll="true"
     >
       <div className="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
-          <h6 className="font-weight-bolder mb-0">Personal Kiosk</h6>
+          <h6 className="font-weight-bolder mb-0 text-white">Personal Kiosk</h6>
         </nav>
         <div
           className="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4"
