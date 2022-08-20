@@ -2,6 +2,10 @@
   text-decoration: underline;
 }
 
+.widget-grid-container {
+  padding: 1em;
+}
+
 .widget-container {
   overflow: hidden;
   padding: 5px;

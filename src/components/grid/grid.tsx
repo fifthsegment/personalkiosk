@@ -1,5 +1,9 @@
 import { useContext } from "react";
-import GridLayout, { Layout } from "react-grid-layout";
+import GridLayout, {
+  Responsive,
+  Layout,
+  WidthProvider,
+} from "react-grid-layout";
 import Widget from "../widget/widget";
 import { DomainContext } from "../dashboard/domain/domain";
 
@@ -9,6 +13,7 @@ import "/node_modules/react-resizable/css/styles.css";
 export default function Grid() {
   const { domain, updateDomain } = useContext(DomainContext);
   const { width } = window.screen;
+  const ResponsiveGridLayout = WidthProvider(Responsive);
   const onLayoutChange = (layout: Layout[]) => {
     updateDomain({ ...domain, layout: layout });
   };
@@ -18,27 +23,37 @@ export default function Grid() {
       {({ domain }) => {
         const { layout, mode } = domain;
         return (
-          <GridLayout
-            className="layout"
-            layout={layout}
-            cols={12}
-            rowHeight={30}
-            width={width}
-            onLayoutChange={onLayoutChange}
-            isDraggable={allowMovements}
-            isResizable={allowMovements}
-          >
-            {layout.map((item) => {
-              const widgetProps = domain.widgets.find((widget) => {
-                return widget.id === item.i;
-              });
-              return (
-                <div key={item.i} className="card widget-container">
-                  <Widget data={widgetProps} mode={mode} id={item.i} />
-                </div>
-              );
-            })}
-          </GridLayout>
+          <div className="widget-grid-container">
+            <ResponsiveGridLayout
+              className="layout"
+              layouts={{
+                lg: layout,
+                sm: layout,
+                md: layout,
+                xs: layout,
+                xxs: layout,
+              }}
+              //cols={12}
+              //rowHeight={30}
+              //width={width - 100}
+              onLayoutChange={onLayoutChange}
+              isDraggable={allowMovements}
+              isResizable={allowMovements}
+              breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
+              cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
+            >
+              {layout.map((item) => {
+                const widgetProps = domain.widgets.find((widget) => {
+                  return widget.id === item.i;
+                });
+                return (
+                  <div key={item.i} className="card widget-container">
+                    <Widget data={widgetProps} mode={mode} id={item.i} />
+                  </div>
+                );
+              })}
+            </ResponsiveGridLayout>
+          </div>
         );
       }}
     </DomainContext.Consumer>
