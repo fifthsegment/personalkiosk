@@ -38,9 +38,22 @@ export const WidgetEditer = ({ id, data, onSaveWidget }: WidgetEditerProps) => {
 
   return (
     <div className="widget">
-      Edit Widget
-      <input type="text" value={localData?.url} onChange={onWidgetUrlUpdate} />
-      <button onClick={onClickSave}>Save</button>
+      <form onSubmit={onClickSave}>
+        <div className="row">
+          <div className="col-sm-12">
+            <label>Address</label>
+            <div className="form-group">
+              <input
+                type="text"
+                className="form-control"
+                value={localData?.url}
+                onChange={onWidgetUrlUpdate}
+              />
+            </div>
+          </div>
+        </div>
+        <input type="submit" value="Save" className="btn btn-primary " />
+      </form>
     </div>
   );
 };
