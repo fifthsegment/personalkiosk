@@ -1,22 +1,17 @@
-import { dashboardMode } from "../dashboard/domain/domain";
-import { WidgetDefinition } from "../types";
+import { DashboardMode, WidgetDefinition } from "../types";
 import { WidgetEditer } from "./widget-editer/widget-editer";
 import { WidgetIframe } from "./widget-iframe/WidgetIframe";
 
 type WidgetProps = {
     id : string
     data: undefined | WidgetDefinition,
-    mode: dashboardMode
+    mode: DashboardMode
 };
 export default function Widget({id, mode, data}: WidgetProps) {
-    if (mode === 'EDITING') {
-        return <WidgetEditer key={id} id={id} data={data}/>
-    }
     switch(data?.type) {
         case 'iframe':
-            return <WidgetIframe id={id} data={data} />
+            return <WidgetIframe id={id} data={data} mode={mode} />
         default:
         return <>Empty</>
     }
-    
 }

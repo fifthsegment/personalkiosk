@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import GridLayout, { Layout } from "react-grid-layout";
 import Widget from "../widget/widget";
-import { DomainConsumerType, DomainContext, DomainDefinition } from '../dashboard/domain/domain';
+import { DomainContext } from '../dashboard/domain/domain';
 
 import "/node_modules/react-grid-layout/css/styles.css"
 import "/node_modules/react-resizable/css/styles.css"
@@ -12,6 +12,7 @@ export default function Grid () {
       const onLayoutChange = (layout: Layout[]) => {
           updateDomain({...domain, layout: layout})
       }
+      const allowMovements = domain.mode === 'VIEWING';
       return (
           <DomainContext.Consumer>
               {({domain}) => {
@@ -21,6 +22,8 @@ export default function Grid () {
                             rowHeight={30}
                             width={width}
                             onLayoutChange={onLayoutChange}
+                            isDraggable={allowMovements}
+                            isResizable={allowMovements}
                         >
                         {layout.map(item => {
                             const widgetProps = domain.widgets.find((widget) => {

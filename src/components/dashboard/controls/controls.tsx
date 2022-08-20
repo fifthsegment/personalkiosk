@@ -1,17 +1,20 @@
-import React from 'react';
-import { AddWidget } from '../add-widget/addWidget';
-import { EditDashboard } from '../edit-dashboard/edit-dashboard';
+import React, { useContext } from 'react';
+import { addWidget } from '../../../actions';
+import { NavLink } from '../../../styled-components';
+import { Navbar } from '../../navbar/navbar';
+import { DomainContext } from '../domain/domain';
+import { EditDashboard } from './edit-dashboard/edit-dashboard';
 
 export const Controls = () => {
+    const {domain, updateDomain} = useContext(DomainContext);
+
+    const items = [
+              { 
+                element : <NavLink icon="fa-plus" onClick={() => addWidget(domain, updateDomain)}/>
+              }, {
+                element: <EditDashboard />
+              }];
     return <div className='controls-wrapper'>
-        
-        <div className="alert alert-info" role="alert">
-            An <a target="_blank" href="https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe/related">extension</a> must be used to display widget contents
-        </div>
-        <div className='controls'>
-            <AddWidget/>
-            <div className='spacer'/>
-            <EditDashboard/>
-        </div>
+        <Navbar items={items}/>
     </div>
 }
