@@ -7,7 +7,7 @@ export type NavLinkProps = {
 }
 
 export const NavLink = ({onClick, icon, style}:NavLinkProps) => {
-    return <a className="nav-link p-0" onClick={onClick} style={style}>
+    return <span className="nav-link p-0" onClick={onClick} style={style}  >
             {icon && <i className={`fa ${icon} fixed-plugin-button-nav cursor-pointer`} aria-hidden="true"></i> }
-        </a>
+        </span>
 }

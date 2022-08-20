@@ -27,7 +27,7 @@ export default function Grid () {
                         >
                         {layout.map(item => {
                             const widgetProps = domain.widgets.find((widget) => {
-                                return widget.id == item.i;
+                                return widget.id === item.i;
                             })
                             return <div key={item.i}  className="card widget-container">
                                 <Widget data={widgetProps} mode={mode} id={item.i}/>

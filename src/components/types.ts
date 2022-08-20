@@ -1,5 +1,3 @@
-import { SyntheticEvent } from "react"
-
 export type DashboardMode = 'EDITING' | 'VIEWING';
 
 

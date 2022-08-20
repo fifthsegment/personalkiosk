@@ -1,4 +1,4 @@
-import React, { ChangeEvent, SyntheticEvent, useContext, useState } from 'react';
+import React, { SyntheticEvent, useContext, useState } from 'react';
 import { DomainContext } from '../../dashboard/domain/domain';
 import { WidgetDefinition } from '../../types';
 

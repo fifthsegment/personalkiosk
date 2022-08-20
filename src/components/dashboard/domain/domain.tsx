@@ -1,6 +1,6 @@
 import React from 'react';
 import { getDefaultDomain } from '../../../actions';
-import { DashboardMode, DomainDefinition, LayoutDefinition, WidgetDefinition, WidgetType } from '../../types';
+import {DomainDefinition} from '../../types';
 
 interface Props {
     children: React.ReactElement

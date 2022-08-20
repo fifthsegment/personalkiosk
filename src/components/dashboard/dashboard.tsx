@@ -11,7 +11,7 @@ export default function Dashboard () {
         <Domain>
             <>
             <AlertComp>
-              An <a target="_blank" className="text-white text-underline" href="https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe/related">extension</a> must be used to display widget contents
+              An <a rel="noreferrer" target="_blank" className="text-white text-underline" href="https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe/related">extension</a> must be used to display widget contents
             </AlertComp>
             <Controls />
             <Grid />

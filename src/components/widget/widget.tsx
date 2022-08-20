@@ -1,5 +1,4 @@
 import { DashboardMode, WidgetDefinition } from "../types";
-import { WidgetEditer } from "./widget-editer/widget-editer";
 import { WidgetIframe } from "./widget-iframe/WidgetIframe";
 
 type WidgetProps = {
