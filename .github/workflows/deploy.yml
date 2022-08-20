@@ -9,7 +9,7 @@ jobs:
     steps:
         - uses: actions/checkout@v2
         - name: Deploy
-          uses: reggionick/s3-deploy@v3
+          uses: jakejarvis/s3-sync-action@master
           with:
             folder: released
             bucket: ${{ secrets.S3_BUCKET }}
