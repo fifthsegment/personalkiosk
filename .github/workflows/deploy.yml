@@ -1,10 +1,5 @@
 name: Upload to S3
-
-on:
-  push:
-    branches:
-    - main
-
+on: push
 jobs:
   deploy:
     runs-on: ubuntu-latest
