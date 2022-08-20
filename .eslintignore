@@ -1,5 +1,1 @@
-{
-    "ignorePatterns": ["**/released/**"],
-    "rules": {
-    }
-}
+**/released/**
