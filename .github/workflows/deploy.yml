@@ -9,8 +9,12 @@ jobs:
     steps:
         - uses: actions/checkout@v2
         - name: Deploy
-          uses: jakejarvis/s3-sync-action@master
+        - uses: jakejarvis/s3-sync-action@master
           with:
-            folder: released
-            bucket: ${{ secrets.S3_BUCKET }}
-            bucket-region: ${{ secrets.S3_BUCKET_REGION }}
+            args: '--acl public-read --follow-symlinks --delete'
+          env:
+            AWS_S3_BUCKET: '${{ secrets.S3_BUCKET }}'
+            AWS_ACCESS_KEY_ID: '${{ secrets.AWS_ACCESS_KEY_ID }}'
+            AWS_SECRET_ACCESS_KEY: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
+            AWS_REGION: '${{ secrets.S3_BUCKET_REGION }}'
+            SOURCE_DIR: released
