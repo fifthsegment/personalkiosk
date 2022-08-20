@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "../../../styled-components";
+import { IconLink } from "../../../styled-components";
 import { GenericWidgetProps } from "../../types";
 import { WidgetEditer } from "../widget-editer/widget-editer";
 
@@ -15,7 +15,7 @@ export const WidgetIframe = ({ id, data, mode }: GenericWidgetProps) => {
   return (
     <div className="widget widget-iframe-container" key={id}>
       {mode === "EDITING" && (
-        <NavLink
+        <IconLink
           icon="fa-pen"
           style={{ position: "absolute", right: "10px" }}
           onClick={() => {
