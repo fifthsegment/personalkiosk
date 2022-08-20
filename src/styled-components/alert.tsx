@@ -9,6 +9,7 @@ export const AlertComp = ({ children }: React.PropsWithChildren) => {
       role="alert"
     >
       {children}
+      <button>X</button>
     </div>
   );
 };
