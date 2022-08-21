@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { getDefaultDomain } from "../../../actions";
+import {
+  getDomainStateLS,
+  setDomainStateLS,
+} from "../../../actions/localstorage";
 import { DomainDefinition } from "../../types";
 
 interface Props {
@@ -17,7 +21,13 @@ export const DomainContext = React.createContext<DomainConsumerType>({
 
 export const Domain = ({ children }: Props) => {
   const definition: DomainDefinition = getDefaultDomain();
-  const [domainData, setDomainData] = React.useState(definition);
+  const savedDomainData = getDomainStateLS();
+  const [domainData, setDomainData] = React.useState(
+    Object.keys(savedDomainData).length !== 0 ? savedDomainData : definition
+  );
+  useEffect(() => {
+    setDomainStateLS(domainData);
+  }, [domainData]);
   const updateDomain = (data: DomainDefinition) => {
     setDomainData(data);
   };

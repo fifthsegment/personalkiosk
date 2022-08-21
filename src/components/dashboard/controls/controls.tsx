@@ -37,7 +37,8 @@ export const Controls = () => {
         <PortalToModal>
           <ModalHeader title="Add Widget" />
           <ModalBody>
-            <div>Widget List</div>
+            <div>Pick a widget type: </div>
+            <br />
             <div>
               {getWidgetTypeList().map((widgetType) => {
                 return (
