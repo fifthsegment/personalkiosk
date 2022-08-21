@@ -1,15 +1,4 @@
-export type WidgetEditableField = {
-  title: string;
-  key: string;
-};
-
-export type InternalWidget = {
-  title: string;
-  type: GenericWidgetTypes;
-  editableFields: WidgetEditableField[];
-};
-
-export type GenericWidgetTypes = "iframe" | "embedded-html";
+export type GenericWidgetTypes = "iframe" | "embedded-html" | "clock";
 
 const list: InternalWidget[] = [
   {
@@ -22,7 +11,23 @@ const list: InternalWidget[] = [
     type: "embedded-html",
     editableFields: [{ title: "HTML", key: "html" }],
   },
+  {
+    title: "Clock",
+    type: "clock",
+    editableFields: [],
+  },
 ];
+
+export type WidgetEditableField = {
+  title: string;
+  key: string;
+};
+
+export type InternalWidget = {
+  title: string;
+  type: GenericWidgetTypes;
+  editableFields: WidgetEditableField[];
+};
 
 export const getWidgetTypeList = () => {
   return list.map((widget: InternalWidget) => {
