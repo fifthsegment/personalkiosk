@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { deleteWidget } from "../../actions";
 import { IconLink } from "../../styled-components/icon-link";
 import { DomainContext } from "../dashboard/domain/domain";
@@ -43,6 +43,7 @@ export default function Widget({ id, mode, data }: WidgetProps) {
           />
         </>
       )}
+
       <WidgetView id={id} mode={mode} data={data} />
     </>
   );
@@ -51,12 +52,45 @@ export default function Widget({ id, mode, data }: WidgetProps) {
 const WidgetView = ({ id, mode, data }: WidgetProps) => {
   switch (data?.type) {
     case "iframe":
-      return <WidgetIframe id={id} data={data} mode={mode} />;
+      return (
+        <WidgetRefresher>
+          <WidgetIframe id={id} data={data} mode={mode} />
+        </WidgetRefresher>
+      );
     case "embedded-html":
-      return <WidgetEmbedded id={id} data={data} mode={mode} />;
+      return (
+        <WidgetRefresher>
+          <WidgetEmbedded id={id} data={data} mode={mode} />
+        </WidgetRefresher>
+      );
     case "clock":
       return <WidgetClock id={id} data={data} mode={mode} />;
     default:
       return <>Empty</>;
   }
+};
+
+export const WidgetRefresher = ({ children }: React.PropsWithChildren) => {
+  const [updating, setUpdating] = useState(false);
+  useEffect(() => {
+    setInterval(() => setUpdating(true), 600000);
+  }, []);
+  useEffect(() => {
+    if (updating === true) {
+      setTimeout(() => setUpdating(false), 500);
+    }
+  }, [updating]);
+  return (
+    <>
+      {updating === true ? (
+        <div className="text-center">
+          <div className="fa-3x">
+            <i className="fas fa-spinner fa-spin"></i>
+          </div>
+        </div>
+      ) : (
+        children
+      )}
+    </>
+  );
 };
