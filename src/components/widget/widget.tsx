@@ -3,6 +3,7 @@ import { deleteWidget } from "../../actions";
 import { IconLink } from "../../styled-components/icon-link";
 import { DomainContext } from "../dashboard/domain/domain";
 import { DashboardMode, WidgetDefinition } from "../types";
+import { WidgetClock } from "./widget-clock/widget-clock";
 import { WidgetEditer } from "./widget-editer/widget-editer";
 import { WidgetEmbedded } from "./widget-html/widget-embedded";
 import { WidgetIframe } from "./widget-iframe/WidgetIframe";
@@ -53,6 +54,8 @@ const WidgetView = ({ id, mode, data }: WidgetProps) => {
       return <WidgetIframe id={id} data={data} mode={mode} />;
     case "embedded-html":
       return <WidgetEmbedded id={id} data={data} mode={mode} />;
+    case "clock":
+      return <WidgetClock id={id} data={data} mode={mode} />;
     default:
       return <>Empty</>;
   }

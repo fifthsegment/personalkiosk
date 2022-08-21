@@ -1,3 +1,8 @@
+@import "./theme/animations/light.css";
+@font-face {
+  font-family: "Orbitron";
+  src: url("./theme/fonts/Orbitron-Regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 .text-underline {
   text-decoration: underline;
 }
@@ -39,6 +44,26 @@ button.btn-toggle-dashboard-mode {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.widget-clock {
+  font-family: "Orbitron";
+  font-size: 4em;
+  display: block;
+  text-align: center;
+}
+
+.widget-clock-date {
+  font-family: "Orbitron";
+  font-size: 1.5em;
+  display: block;
+  text-align: center;
+}
+
+.widget-clock-container {
+  height: 100%;
+  background: radial-gradient(#a23982, #1f1013);
+  color: white;
 }
 
 .alert-top {
