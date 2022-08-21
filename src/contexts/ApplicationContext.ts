@@ -4,6 +4,8 @@ import { ApplicationContextType } from "../components/types";
 export const getInitialContext = () => {
   return {
     dismissedChromeExtAlert: false,
+    modalVisible: false,
+    modalRef: undefined,
   };
 };
 

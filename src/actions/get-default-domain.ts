@@ -5,18 +5,21 @@ export const getDefaultDomain = (): DomainDefinition => {
     widgets: [
       {
         id: "1",
-        url: "https://google.com",
+        url: "",
         type: "iframe" as WidgetType,
+        jsonData: '{"url": "https://google.com"}',
       },
       {
         id: "2",
         url: "https://google.com",
         type: "iframe" as WidgetType,
+        jsonData: '{"url": "https://google.com"}',
       },
       {
         id: "3",
         url: "https://google.com",
-        type: "iframe" as WidgetType,
+        type: "embedded-html" as WidgetType,
+        jsonData: '{"html": "https://google.com"}',
       },
     ],
     layout: [
