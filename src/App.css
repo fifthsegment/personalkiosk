@@ -41,6 +41,14 @@ button.btn-toggle-dashboard-mode {
   height: 100%;
 }
 
+.widget-embedded-html-container {
+    height: 100%;
+}
+
+.widget-embedded-html-container iframe{
+    height: 100%;
+}
+
 .alert-top {
   border-radius: 0 !important;
 }
