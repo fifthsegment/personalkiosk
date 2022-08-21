@@ -46,6 +46,14 @@ button.btn-toggle-dashboard-mode {
   height: 100%;
 }
 
+.widget-embedded-html-container {
+    height: 100%;
+}
+
+.widget-embedded-html-container iframe{
+    height: 100%;
+}
+
 .widget-clock {
   font-family: "Orbitron";
   font-size: 4em;
