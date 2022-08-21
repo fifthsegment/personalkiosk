@@ -1,11 +1,14 @@
+import { GenericWidgetTypes } from "../common/widget-common";
+
 export type DashboardMode = "EDITING" | "VIEWING";
 
-export type WidgetType = "iframe" | "custom";
+export type WidgetType = GenericWidgetTypes;
 
 export type WidgetDefinition = {
   id: string;
   url: string;
   type: WidgetType;
+  jsonData: string;
 };
 
 export type GenericWidgetProps = {
@@ -33,11 +36,12 @@ export type DomainDefinition = {
 };
 
 export type ApplicationContextDataType = {
-    dismissedChromeExtAlert : boolean
-    
-}
+  dismissedChromeExtAlert: boolean;
+  modalVisible: boolean;
+  modalRef: any;
+};
 
 export type ApplicationContextType = {
-    update: (data:ApplicationContextDataType) => void
-    data: ApplicationContextDataType
-}
+  update: (data: ApplicationContextDataType) => void;
+  data: ApplicationContextDataType;
+};

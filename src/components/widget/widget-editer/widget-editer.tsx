@@ -1,4 +1,5 @@
 import React, { SyntheticEvent, useContext, useState } from "react";
+import { getWidgetEditableFields, WidgetEditableField } from "../../../common/widget-common";
 import { DomainContext } from "../../dashboard/domain/domain";
 import { WidgetDefinition } from "../../types";
 
@@ -12,6 +13,7 @@ export const WidgetEditer = ({ id, data, onSaveWidget }: WidgetEditerProps) => {
   const [localData, updateLocalData] = useState<WidgetDefinition | undefined>(
     data
   );
+  const localJsonData = localData && JSON.parse(localData?.jsonData);
   const onClickSave = (e: SyntheticEvent) => {
     updateDomain({
       ...domain,
@@ -29,10 +31,14 @@ export const WidgetEditer = ({ id, data, onSaveWidget }: WidgetEditerProps) => {
     onSaveWidget();
   };
 
-  const onWidgetUrlUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onWidgetDataUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
+    const key = event.target.name;
     if (localData) {
-      updateLocalData({ ...localData, url: newValue });
+      updateLocalData({
+        ...localData,
+        jsonData: JSON.stringify({ ...localJsonData, [key]: newValue }),
+      });
     }
   };
 
@@ -41,15 +47,21 @@ export const WidgetEditer = ({ id, data, onSaveWidget }: WidgetEditerProps) => {
       <form onSubmit={onClickSave}>
         <div className="row">
           <div className="col-sm-12">
-            <label>Address</label>
-            <div className="form-group">
-              <input
-                type="text"
-                className="form-control"
-                value={localData?.url}
-                onChange={onWidgetUrlUpdate}
-              />
-            </div>
+              {data && getWidgetEditableFields(data.type)?.map((field:WidgetEditableField) => {
+                  return <>
+                  <label>{field.title}</label>
+                    <div className="form-group">
+                    <input
+                        name={field.key}
+                        type="text"
+                        className="form-control"
+                        value={localJsonData?.[field.key]}
+                        onChange={onWidgetDataUpdate}
+                    />
+                    </div>
+                  </>
+              })}
+            
           </div>
         </div>
         <input type="submit" value="Save" className="btn btn-primary " />
