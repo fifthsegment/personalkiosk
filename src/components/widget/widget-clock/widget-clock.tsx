@@ -1,11 +1,20 @@
 import { GenericWidgetProps } from "../../types";
 import Clock from "react-live-clock";
 
-export const WidgetClock = ({ id, data }: GenericWidgetProps) => {
+export const WidgetClock = (_props: GenericWidgetProps) => {
   return (
     <div className="widget-clock-container">
-      <Clock className="widget-clock" format={"h:mm:a"} ticking={false} />
-      <Clock className="widget-clock-date" format={"dddd, MMMM Do, YYYY"} />
+      <Clock
+        className="widget-clock"
+        interval={2000}
+        ticking={true}
+        format={"h:mm:a"}
+      />
+      <Clock
+        className="widget-clock-date"
+        ticking={true}
+        format={"dddd, MMMM Do, YYYY"}
+      />
       <div className="light x1"></div>
       <div className="light x2"></div>
       <div className="light x3"></div>
