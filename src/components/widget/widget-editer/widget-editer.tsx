@@ -31,7 +31,7 @@ export const WidgetEditer = ({ id, data, onSaveWidget }: WidgetEditerProps) => {
     onSaveWidget();
   };
 
-  const onWidgetDataUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onWidgetDataUpdate = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
     const newValue = event.target.value;
     const key = event.target.name;
     if (localData) {
@@ -51,13 +51,21 @@ export const WidgetEditer = ({ id, data, onSaveWidget }: WidgetEditerProps) => {
                   return <>
                   <label>{field.title}</label>
                     <div className="form-group">
-                    <input
+                    {(field.type === "text")  ?
+                        <input
                         name={field.key}
                         type="text"
                         className="form-control"
                         value={localJsonData?.[field.key]}
                         onChange={onWidgetDataUpdate}
-                    />
+                    />: (field.type === "textarea") ? 
+                        <textarea 
+                        name={field.key}
+                        className="form-control"
+                        value={localJsonData?.[field.key]}
+                        onChange={onWidgetDataUpdate}
+                        />
+                    : <></> }
                     </div>
                   </>
               })}

@@ -34,7 +34,7 @@ export default function Grid() {
                 xxs: layout,
               }}
               //cols={12}
-              //rowHeight={30}
+              rowHeight={10}
               //width={width - 100}
               onLayoutChange={onLayoutChange}
               isDraggable={allowMovements}
