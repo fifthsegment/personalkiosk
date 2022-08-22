@@ -1,6 +1,6 @@
 # PersonalKiosk
 
-This is a webapp that runs in chrome and turns any screen in your home into a kiosk. To use simply open the demo link in a chrome based web-browser. Next, add your favorite websites onto your dashboard or simply embed any piece of HTML/JS code as a widget anywhere on your dash!
+This is a webapp that turns any screen in your home into a kiosk. To use simply open the demo link in a web-browser. Next, add your favorite websites onto your dashboard or simply embed any piece of HTML/JS code as a widget anywhere on your dash!
 
 Examples of widgets include:
 
