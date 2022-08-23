@@ -47,11 +47,11 @@ button.btn-toggle-dashboard-mode {
 }
 
 .widget-embedded-html-container {
-    height: 100%;
+  height: 100%;
 }
 
-.widget-embedded-html-container iframe{
-    height: 100%;
+.widget-embedded-html-container iframe {
+  height: 100%;
 }
 
 .widget-clock {

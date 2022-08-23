@@ -3,6 +3,7 @@ import { NavLink } from "../../../../styled-components";
 import { DomainContext } from "../../domain/domain";
 import { toggleDashboardMode as externalActionToggleDashboardMode } from "../../../../actions";
 import { ApplicationContext } from "../../../../contexts/ApplicationContext";
+import { ArrowDownIcon, CheckCircleIcon, PencilIcon } from "@heroicons/react/outline";
 
 export const EditDashboard = () => {
   const { domain, updateDomain } = useContext(DomainContext);
@@ -16,7 +17,13 @@ export const EditDashboard = () => {
     <>
       <NavLink
         onClick={toggleDashboardMode}
-        icon={mode === "VIEWING" ? "fa-pen" : "fa-cloud"}
+        Icon={
+          mode === "VIEWING" ? (
+            <PencilIcon className="h-6 w-6 text-white" />
+          ) : (
+            <CheckCircleIcon className="h-6 w-6 text-white	" />
+          )
+        }
       />
     </>
   );

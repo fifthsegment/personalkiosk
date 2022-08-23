@@ -2,27 +2,28 @@ import { SyntheticEvent } from "react";
 
 export type NavLinkProps = {
   onClick?: (event: SyntheticEvent) => void;
-  icon?: string;
+  Icon: JSX.Element;
   style?: React.CSSProperties;
   dataBsTarget?: string;
   dataBsToggle?: string;
 };
 
-export const NavLink = ({ onClick, icon, style , dataBsTarget, dataBsToggle }: NavLinkProps) => {
+export const NavLink = ({
+  onClick,
+  Icon,
+  style,
+  dataBsTarget,
+  dataBsToggle,
+}: NavLinkProps) => {
   return (
     <span
-      className="nav-link p-0"
+      className="flex p-2 rounded-lg bg-indigo-800"
       onClick={onClick}
       style={style}
       data-bs-toggle={dataBsToggle}
       data-bs-target={dataBsTarget}
     >
-      {icon && (
-        <i
-          className={`fa ${icon} fixed-plugin-button-nav cursor-pointer text-white`}
-          aria-hidden="true"
-        ></i>
-      )}
+      {Icon}
     </span>
   );
 };
