@@ -3,6 +3,9 @@
   font-family: "Orbitron";
   src: url("./theme/fonts/Orbitron-Regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+.dashboard-container {
+  height: 100vh;
+}
 .text-underline {
   text-decoration: underline;
 }

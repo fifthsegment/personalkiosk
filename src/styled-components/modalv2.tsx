@@ -1,15 +1,17 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment, PropsWithChildren, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { ExclamationIcon } from "@heroicons/react/outline";
+import { ExclamationIcon, PlusIcon } from "@heroicons/react/outline";
 
 export type ModalProps = {
   open: boolean;
+  iconElement?: JSX.Element;
   setOpen: (value: boolean) => void;
 };
 
 export default function ModalV2({
   open,
+  iconElement,
   setOpen,
   children,
 }: PropsWithChildren<ModalProps>) {
@@ -51,19 +53,8 @@ export default function ModalV2({
               <Dialog.Panel className="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full">
                 <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                   <div className="sm:flex sm:items-start">
-                    <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                      <ExclamationIcon
-                        className="h-6 w-6 text-red-600"
-                        aria-hidden="true"
-                      />
-                    </div>
+                    {iconElement}
                     <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                      <Dialog.Title
-                        as="h3"
-                        className="text-lg leading-6 font-medium text-gray-900"
-                      >
-                        Deactivate account
-                      </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">{children}</p>
                       </div>
@@ -88,3 +79,17 @@ export default function ModalV2({
     </Transition.Root>
   );
 }
+
+export const ModalTitle = ({ children }: PropsWithChildren) => (
+  <Dialog.Title as="h3" className="text-lg leading-6 font-medium text-gray-900">
+    {children}
+  </Dialog.Title>
+);
+
+export const IconElement = ({ icon }: { icon: JSX.Element }) => {
+  return (
+    <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+      {icon}
+    </div>
+  );
+};

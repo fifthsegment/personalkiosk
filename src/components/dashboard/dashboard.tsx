@@ -10,23 +10,20 @@ export default function Dashboard() {
   return (
     <Application>
       <Domain>
-        <>
-          <ModalComp />
+        <div className="bg-slate-200 dashboard-container">
           <AlertComp>
-            An{" "}
             <a
               rel="noreferrer"
               target="_blank"
               className="text-white text-underline"
               href="https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe/related"
             >
-              extension
-            </a>{" "}
-            must be used to display widget contents
+              {`An extension must be used to display widget contents`}
+            </a>
           </AlertComp>
           <Controls />
           <Grid />
-        </>
+        </div>
       </Domain>
     </Application>
   );
