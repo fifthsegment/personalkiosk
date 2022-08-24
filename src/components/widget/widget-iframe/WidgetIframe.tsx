@@ -1,11 +1,13 @@
-
 import { GenericWidgetProps } from "../../types";
 
 export const WidgetIframe = ({ id, data }: GenericWidgetProps) => {
   const localJsonData = data && JSON.parse(data?.jsonData);
 
   return (
-    <div className="widget widget-iframe-container" key={id}>
+    <div
+      className="widget widget-iframe-container drop-shadow-md border-solid rounded bg-stone-50"
+      key={id}
+    >
       <iframe
         title={localJsonData?.url}
         className="widget-iframe"
