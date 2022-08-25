@@ -19,7 +19,7 @@ export const WidgetEmbedded = ({ id, data, mode }: GenericWidgetProps) => {
     }
   }, [localJsonData, id]);
   return (
-    <div className="widget widget-embedded-html-container" key={id}>
+    <div className="widget widget-embedded-html-container bg-stone-50" key={id}>
       <iframe id={id} src="#" width="100%" scrolling="no" />
     </div>
   );

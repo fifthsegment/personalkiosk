@@ -23,7 +23,7 @@ export default function Grid() {
       {({ domain }) => {
         const { layout, mode } = domain;
         return (
-          <div className="widget-grid-container">
+          <div className="widget-grid-container ">
             <ResponsiveGridLayout
               className="layout"
               layouts={{
@@ -47,7 +47,10 @@ export default function Grid() {
                   return widget.id === item.i;
                 });
                 return (
-                  <div key={item.i} className="card widget-container">
+                  <div
+                    key={item.i}
+                    className="drop-shadow-md border-solid rounded widget-container"
+                  >
                     <Widget data={widgetProps} mode={mode} id={item.i} />
                   </div>
                 );

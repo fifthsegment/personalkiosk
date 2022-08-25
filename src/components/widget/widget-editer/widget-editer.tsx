@@ -1,5 +1,8 @@
 import React, { SyntheticEvent, useContext, useState } from "react";
-import { getWidgetEditableFields, WidgetEditableField } from "../../../common/widget-common";
+import {
+  getWidgetEditableFields,
+  WidgetEditableField,
+} from "../../../common/widget-common";
 import { DomainContext } from "../../dashboard/domain/domain";
 import { WidgetDefinition } from "../../types";
 
@@ -31,10 +34,16 @@ export const WidgetEditer = ({ id, data, onSaveWidget }: WidgetEditerProps) => {
     onSaveWidget();
   };
 
-  const onWidgetDataUpdate = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+  const onWidgetDataUpdate = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     const newValue = event.target.value;
     const key = event.target.name;
     if (localData) {
+      console.log("newValue", newValue, key);
+
       updateLocalData({
         ...localData,
         jsonData: JSON.stringify({ ...localJsonData, [key]: newValue }),
@@ -45,34 +54,54 @@ export const WidgetEditer = ({ id, data, onSaveWidget }: WidgetEditerProps) => {
   return (
     <div className="widget">
       <form onSubmit={onClickSave}>
-        <div className="row">
-          <div className="col-sm-12">
-              {data && getWidgetEditableFields(data.type)?.map((field:WidgetEditableField) => {
-                  return <>
-                  <label>{field.title}</label>
-                    <div className="form-group">
-                    {(field.type === "text")  ?
-                        <input
-                        name={field.key}
-                        type="text"
-                        className="form-control"
-                        value={localJsonData?.[field.key]}
-                        onChange={onWidgetDataUpdate}
-                    />: (field.type === "textarea") ? 
-                        <textarea 
-                        name={field.key}
-                        className="form-control"
-                        value={localJsonData?.[field.key]}
-                        onChange={onWidgetDataUpdate}
-                        />
-                    : <></> }
-                    </div>
-                  </>
-              })}
-            
+        <div className="shadow overflow-hidden sm:rounded-md">
+          <div className="px-4 py-5 bg-white sm:p-6">
+            <div className="grid grid-cols-1 gap-6">
+              {data &&
+                getWidgetEditableFields(data.type)?.map(
+                  (field: WidgetEditableField) => {
+                    return (
+                      <>
+                        <div className="col-span-6 sm:col-span-3">
+                          <label className="block text-sm font-medium text-gray-700">
+                            {field.title}
+                          </label>
+
+                          {field.type === "text" ? (
+                            <input
+                              className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-3 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                              placeholder={field.placeholder}
+                              type="text"
+                              name={field.key}
+                              value={localJsonData?.[field.key]}
+                              onChange={onWidgetDataUpdate}
+                            />
+                          ) : field.type === "textarea" ? (
+                            <textarea
+                              placeholder={field.placeholder}
+                              name={field.key}
+                              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 pl-3 pr-3 rounded-md"
+                              value={localJsonData?.[field.key]}
+                              onChange={onWidgetDataUpdate}
+                            />
+                          ) : (
+                            <></>
+                          )}
+                        </div>
+                      </>
+                    );
+                  }
+                )}
+            </div>
+          </div>
+          <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <input
+              type="submit"
+              value="Save"
+              className="bg-slate-900 cursor-pointer text-white hover:bg-slate-700inline-flex justify-center rounded-lg text-sm font-semibold py-2.5 px-4 bg-sla -my-2.5 ml-8"
+            />
           </div>
         </div>
-        <input type="submit" value="Save" className="btn btn-primary " />
       </form>
     </div>
   );

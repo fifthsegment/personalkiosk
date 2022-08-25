@@ -1,3 +1,4 @@
+import { PencilIcon, TrashIcon } from "@heroicons/react/outline";
 import { useContext, useEffect, useState } from "react";
 import { deleteWidget } from "../../actions";
 import { IconLink } from "../../styled-components/icon-link";
@@ -27,19 +28,13 @@ export default function Widget({ id, mode, data }: WidgetProps) {
     <>
       {mode === "EDITING" && (
         <>
-          <IconLink
-            icon="fa-pen"
-            style={{ position: "absolute", right: "10px" }}
-            onClick={() => {
-              setIsBeingEdited(true);
-            }}
+          <PencilIcon
+            className="h-6 w-6 text-black z-10 mt-2 absolute right-4"
+            onClick={() => setIsBeingEdited(true)}
           />
-          <IconLink
-            icon="fa-trash"
-            style={{ position: "absolute", right: "35px" }}
-            onClick={() => {
-              deleteWidget(domain, updateDomain, id);
-            }}
+          <TrashIcon
+            className="h-6 w-6 text-black z-10 mt-2 absolute right-12"
+            onClick={() => deleteWidget(domain, updateDomain, id)}
           />
         </>
       )}

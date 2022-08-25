@@ -4,12 +4,21 @@ const list: InternalWidget[] = [
   {
     title: "Iframe",
     type: "iframe",
-    editableFields: [{ title: "Address", key: "url", type: "text" }],
+    editableFields: [
+      { title: "Address", key: "url", type: "text", placeholder: "Address" },
+    ],
   },
   {
     title: "Embedded HTML",
     type: "embedded-html",
-    editableFields: [{ title: "HTML", key: "html", type: "textarea" }],
+    editableFields: [
+      {
+        title: "HTML",
+        key: "html",
+        type: "textarea",
+        placeholder: "Embedded HTML here",
+      },
+    ],
   },
   {
     title: "Clock",
@@ -22,6 +31,7 @@ export type WidgetEditableField = {
   title: string;
   key: string;
   type: string;
+  placeholder: string;
 };
 
 export type InternalWidget = {
