@@ -4,6 +4,7 @@ import { addWidget } from "../../../../actions";
 import { getWidgetTypeList } from "../../../../common/widget-common";
 import { NavLink, Button } from "../../../../styled-components";
 import ModalV2 from "../../../../styled-components/modalv2";
+import { WidgetEditer } from "../../../widget/widget-editer/widget-editer";
 import { DomainContext } from "../../domain/domain";
 
 export const Settings = () => {
@@ -29,23 +30,9 @@ export const Settings = () => {
         setOpenModal(newValue);
       }}
     >
-      <div>Pick a widget type: </div>
+      <div className="mb-8">Settings </div>
       <br />
-      <div>
-        {getWidgetTypeList().map((widgetType) => {
-          return (
-            <Button
-              data-bs-dismiss="modal"
-              onClick={() => {
-                addWidget(domain, updateDomain, widgetType);
-                setOpenModal(false);
-              }}
-            >
-              {widgetType}
-            </Button>
-          );
-        })}
-      </div>
+      <div>Display a color changer here</div>
     </ModalV2>
   );
 };

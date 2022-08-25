@@ -81,14 +81,17 @@ export default function ModalV2({
 }
 
 export const ModalTitle = ({ children }: PropsWithChildren) => (
-  <Dialog.Title as="h3" className="text-lg leading-6 font-medium text-gray-900">
+  <Dialog.Title
+    as="h3"
+    className="mb-8 text-lg leading-6 font-medium text-gray-900"
+  >
     {children}
   </Dialog.Title>
 );
 
 export const IconElement = ({ icon }: { icon: JSX.Element }) => {
   return (
-    <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+    <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 sm:mx-0 sm:h-10 sm:w-10">
       {icon}
     </div>
   );

@@ -6,6 +6,10 @@ export const addWidget = (
   widgetType: WidgetType
 ) => {
   const newId = Math.floor(Math.random() * 1000).toString();
+  const widgetLayout =
+    widgetType === "embedded-html"
+      ? { i: newId, x: 0, y: 0, w: 4, h: 13 }
+      : { i: newId, x: 0, y: 0, w: 4, h: 12 };
   updateDomain({
     ...domain,
     widgets: [
@@ -17,6 +21,6 @@ export const addWidget = (
         jsonData: "{}",
       },
     ],
-    layout: [...domain.layout, { i: newId, x: 0, y: 0, w: 4, h: 4 }],
+    layout: [...domain.layout, widgetLayout],
   });
 };

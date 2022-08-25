@@ -30,7 +30,7 @@ export const AddDashboard = () => {
       iconElement={
         <IconElement
           icon={
-            <PlusIcon className="h-6 w-6 text-red-600" aria-hidden="true" />
+            <PlusIcon className="h-6 w-6 text-indigo-600" aria-hidden="true" />
           }
         />
       }
@@ -40,9 +40,10 @@ export const AddDashboard = () => {
       }}
     >
       <>
-        <ModalTitle>Pick a widget type: </ModalTitle>
+        <ModalTitle>Add Widget </ModalTitle>
+        <p className="mb-8">Please select a widget type to add</p>
         <br />
-        <div>
+        <div className="mb-8">
           {getWidgetTypeList().map((widgetType) => {
             return (
               <Button
