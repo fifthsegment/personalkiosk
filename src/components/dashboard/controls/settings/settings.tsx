@@ -33,6 +33,7 @@ export const Settings = () => {
       <div className="mb-8">Settings </div>
       <br />
       <div>Display a color changer here</div>
+      <div></div>
     </ModalV2>
   );
 };
