@@ -3,6 +3,7 @@ import { ApplicationContextType } from "../components/types";
 
 export const getInitialContext = () => {
   return {
+      backgroundColorClass: "",
     dismissedChromeExtAlert: false,
     modalVisible: false,
     modalRef: undefined,
