@@ -1,15 +1,15 @@
-import { CogIcon, PlusIcon } from "@heroicons/react/outline";
+import { CogIcon } from "@heroicons/react/outline";
 import { useContext, useState } from "react";
-import { addWidget } from "../../../../actions";
-import { getWidgetTypeList } from "../../../../common/widget-common";
-import { NavLink, Button, Input } from "../../../../styled-components";
+import { NavLink, Button, Input, Alert } from "../../../../styled-components";
 import ModalV2 from "../../../../styled-components/modalv2";
-import { WidgetEditer } from "../../../widget/widget-editer/widget-editer";
 import { DomainContext } from "../../domain/domain";
+import { ApplicationContext } from "../../../../contexts/ApplicationContext";
 import { Form, Field, Formik } from "formik";
+import { ModalFooter } from "../../../../styled-components/modal";
 export const Settings = () => {
-  const { domain, updateDomain } = useContext(DomainContext);
+  const { data: AppData, update } = useContext(ApplicationContext);
 
+  const [showAlert, setShowAlert] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   if (openModal === false) {
     return (
@@ -18,12 +18,18 @@ export const Settings = () => {
         dataBsTarget="#mainModal"
         dataBsToggle="modal"
         onClick={() => {
+          setShowAlert(true);
           setOpenModal(true);
+          setTimeout(() => {
+            setShowAlert(false);
+          }, 1000);
         }}
       />
     );
   }
-  const schema = {};
+  const initialData = {
+    bgImageUrl: AppData.settingsData?.bgImageUrl || "",
+  };
   return (
     <ModalV2
       open={openModal}
@@ -31,23 +37,40 @@ export const Settings = () => {
         setOpenModal(newValue);
       }}
     >
-      <div className="mb-8">Settings </div>
-      <br />
-      <div>Display a color changer here</div>
-
+      <h3>Settings </h3>
       <Formik
-        initialValues={{ name: "", email: "" }}
+        initialValues={initialData}
         onSubmit={async (values) => {
-          await new Promise((resolve) => setTimeout(resolve, 500));
-          alert(JSON.stringify(values, null, 2));
+          update({
+            ...AppData,
+            settingsData: {
+              bgImageUrl: values.bgImageUrl,
+            },
+          });
         }}
       >
         <Form>
-          <Field name="name" type="text" label="Name" component={Input} />
-          <Field name="name" type="text" label="Name" component={Input} />
-
-          <Field name="email" type="email" />
-          <button type="submit">Submit</button>
+          <div className="flex flex-col">
+            <Field
+              name="bgImageUrl"
+              type="text"
+              label="Background URL"
+              component={Input}
+            />
+            {showAlert && (
+              <Alert closeBtn={false} type="success">
+                <>
+                  <strong className="font-bold">Holy smokes!</strong>
+                  <span className="block sm:inline">
+                    Something seriously bad happened.
+                  </span>
+                </>
+              </Alert>
+            )}
+            <ModalFooter>
+              <Button>Save</Button>
+            </ModalFooter>
+          </div>
         </Form>
       </Formik>
     </ModalV2>

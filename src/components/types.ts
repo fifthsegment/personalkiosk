@@ -35,8 +35,13 @@ export type DomainDefinition = {
   layout: LayoutDefinition[];
 };
 
+export type SettingsDataType = {
+  bgImageUrl: string;
+};
+
 export type ApplicationContextDataType = {
   dismissedChromeExtAlert: boolean;
+  settingsData: SettingsDataType | undefined;
   modalVisible: boolean;
   modalRef: any;
 };
