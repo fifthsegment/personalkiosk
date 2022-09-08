@@ -36,6 +36,7 @@ export type DomainDefinition = {
 };
 
 export type ApplicationContextDataType = {
+  settingsData: undefined | { [key: string]: string };
   dismissedChromeExtAlert: boolean;
   modalVisible: boolean;
   modalRef: any;
