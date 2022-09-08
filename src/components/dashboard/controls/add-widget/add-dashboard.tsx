@@ -3,10 +3,11 @@ import { useContext, useState } from "react";
 import { addWidget } from "../../../../actions";
 import { getWidgetTypeList } from "../../../../common/widget-common";
 import { NavLink, Button } from "../../../../styled-components";
-import ModalV2, {
+import {
   IconElement,
-  ModalTitle,
-} from "../../../../styled-components/modalv2";
+  ModalV2,
+  ModalV2Title as ModalTitle,
+} from "../../../../styled-components";
 import { DomainContext } from "../../domain/domain";
 
 export const AddDashboard = () => {
