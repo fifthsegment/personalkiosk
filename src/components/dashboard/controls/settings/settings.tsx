@@ -17,17 +17,13 @@ export const Settings = () => {
         dataBsTarget="#mainModal"
         dataBsToggle="modal"
         onClick={() => {
-          setShowAlert(true);
           setOpenModal(true);
-          setTimeout(() => {
-            setShowAlert(false);
-          }, 2000);
         }}
       />
     );
   }
   const initialData = {
-    bgImageUrl: AppData.settingsData?.bgImageUrl || "",
+    bgImageUrl: AppData?.settingsData?.bgImageUrl || "",
   };
   return (
     <ModalV2
@@ -46,6 +42,10 @@ export const Settings = () => {
               bgImageUrl: values.bgImageUrl,
             },
           });
+          setShowAlert(true);
+          setTimeout(() => {
+            setShowAlert(false);
+          }, 2000);
         }}
       >
         <Form>
