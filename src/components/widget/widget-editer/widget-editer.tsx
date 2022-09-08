@@ -70,7 +70,7 @@ export const WidgetEditer = ({ id, data, onSaveWidget }: WidgetEditerProps) => {
                     (field: WidgetEditableField) => {
                       return (
                         <>
-                          <div className="col-span-6 sm:col-span-3">
+                          <div className="col-span-12 sm:col-span-12">
                             <label className="block text-sm font-medium text-gray-700">
                               {field.title}
                             </label>
