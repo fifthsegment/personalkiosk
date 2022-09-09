@@ -88,7 +88,7 @@ export const WidgetEditer = ({ id, data, onSaveWidget }: WidgetEditerProps) => {
                               <textarea
                                 placeholder={field.placeholder}
                                 name={field.key}
-                                className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 pl-3 pr-3 rounded-md"
+                                className="h-32 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 pl-3 pr-3 rounded-md"
                                 value={localJsonData?.[field.key]}
                                 onChange={onWidgetDataUpdate}
                               />

@@ -51,16 +51,7 @@ export default function ModalV2({
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
               <Dialog.Panel className="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full">
-                <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                  <div className="sm:flex sm:items-start">
-                    {iconElement}
-                    <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                      <div className="mt-2">
-                        <p className="text-sm text-gray-500">{children}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {children}
               </Dialog.Panel>
             </Transition.Child>
           </div>
