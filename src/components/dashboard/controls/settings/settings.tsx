@@ -2,10 +2,9 @@ import { CogIcon } from "@heroicons/react/outline";
 import { useContext, useState } from "react";
 import { NavLink, Button, Input, Alert } from "../../../../styled-components";
 import ModalV2 from "../../../../styled-components/modalv2";
-import { DomainContext } from "../../domain/domain";
 import { ApplicationContext } from "../../../../contexts/ApplicationContext";
 import { Form, Field, Formik } from "formik";
-import { ModalFooter } from "../../../../styled-components/modal";
+
 export const Settings = () => {
   const { data: AppData, update } = useContext(ApplicationContext);
   const [showAlert, setShowAlert] = useState(false);
