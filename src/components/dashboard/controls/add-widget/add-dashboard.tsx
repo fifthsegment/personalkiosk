@@ -40,7 +40,7 @@ export const AddDashboard = () => {
         setOpenModal(newValue);
       }}
     >
-      <div className="px-4 py-5 bg-white sm:p-6">
+      <div className="px-4 py-5 bg-white sm:p-6 w-4">
         <ModalTitle>Add Widget </ModalTitle>
         <p className="mb-8">Please select a widget to add</p>
         <br />
