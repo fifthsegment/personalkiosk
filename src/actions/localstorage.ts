@@ -2,8 +2,11 @@ export const ApplicationStorageKey = "personalkiosk/application";
 export const DomainStorageKey = "personalkiosk/domain";
 
 export const getApplicationStateLS = (d = "{}") => {
-  const value = localStorage.getItem(ApplicationStorageKey) || d;
-  return JSON.parse(value);
+  const value = localStorage.getItem(ApplicationStorageKey);
+  if (value) {
+    return JSON.parse(value);
+  }
+  return JSON.parse(d);
 };
 
 export const setApplicationStateLS = (value: any) => {
