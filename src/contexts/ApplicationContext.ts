@@ -1,7 +1,7 @@
 import React from "react";
 import { ApplicationContextType } from "../components/types";
 
-export const getInitialContext = () => {
+export const getDefaultData = () => {
   return {
     settingsData: {
       bgImageUrl:
@@ -15,5 +15,5 @@ export const getInitialContext = () => {
 
 export const ApplicationContext = React.createContext<ApplicationContextType>({
   update: () => {},
-  data: getInitialContext(),
+  data: getDefaultData(),
 });

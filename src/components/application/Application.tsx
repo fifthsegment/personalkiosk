@@ -3,13 +3,14 @@ import {
   getApplicationStateLS,
   setApplicationStateLS,
 } from "../../actions/localstorage";
-import {
-  ApplicationContext,
-} from "../../contexts/ApplicationContext";
+import { ApplicationContext } from "../../contexts/ApplicationContext";
 
 export const Application = ({ children }: React.PropsWithChildren) => {
-  const savedApplicationData = getApplicationStateLS();
-  const [applicationData, setApplicationData] = React.useState(savedApplicationData);
+  const savedApplicationData = getApplicationStateLS(
+    JSON.stringify(ApplicationContext.getDefaultData())
+  );
+  const [applicationData, setApplicationData] =
+    React.useState(savedApplicationData);
 
   useEffect(() => {
     setApplicationStateLS(applicationData);

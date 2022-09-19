@@ -1,8 +1,8 @@
 export const ApplicationStorageKey = "personalkiosk/application";
 export const DomainStorageKey = "personalkiosk/domain";
 
-export const getApplicationStateLS = () => {
-  const value = localStorage.getItem(ApplicationStorageKey) || "{}";
+export const getApplicationStateLS = (d = "{}") => {
+  const value = localStorage.getItem(ApplicationStorageKey) || d;
   return JSON.parse(value);
 };
 
