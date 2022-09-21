@@ -10,7 +10,6 @@ import { ApplicationContext } from "../../contexts/ApplicationContext";
 
 export default function Dashboard() {
   const { data: AppData } = useContext(ApplicationContext);
-  console.log("Dashboard::AppData", AppData);
   const url = AppData?.settingsData?.bgImageUrl;
   return (
     <Application>
