@@ -5,11 +5,15 @@ import {
 } from "../../actions/localstorage";
 import {
   ApplicationContext,
+  getDefaultData,
 } from "../../contexts/ApplicationContext";
 
 export const Application = ({ children }: React.PropsWithChildren) => {
-  const savedApplicationData = getApplicationStateLS();
-  const [applicationData, setApplicationData] = React.useState(savedApplicationData);
+  const savedApplicationData = getApplicationStateLS(
+    JSON.stringify(getDefaultData())
+  );
+  const [applicationData, setApplicationData] =
+    React.useState(savedApplicationData);
 
   useEffect(() => {
     setApplicationStateLS(applicationData);

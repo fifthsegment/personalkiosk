@@ -40,9 +40,9 @@ export const AddDashboard = () => {
         setOpenModal(newValue);
       }}
     >
-      <>
+      <div className="px-4 py-5 bg-white sm:p-6 ">
         <ModalTitle>Add Widget </ModalTitle>
-        <p className="mb-8">Please select a widget type to add</p>
+        <p className="mb-8">Please select a widget to add</p>
         <br />
         <div className="mb-8">
           {getWidgetTypeList().map((widgetType) => {
@@ -59,7 +59,7 @@ export const AddDashboard = () => {
             );
           })}
         </div>
-      </>
+      </div>
     </ModalV2>
   );
 };

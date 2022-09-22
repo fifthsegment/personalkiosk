@@ -5,10 +5,12 @@ import Grid from "../grid/grid";
 import { AlertComp } from "../../styled-components/alert";
 import { Application } from "../application/Application";
 import { ModalComp } from "../../styled-components/modal";
+import { useContext } from "react";
+import { ApplicationContext } from "../../contexts/ApplicationContext";
 
 export default function Dashboard() {
-  const url =
-    "https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg";
+  const { data: AppData } = useContext(ApplicationContext);
+  const url = AppData?.settingsData?.bgImageUrl;
   return (
     <Application>
       <Domain>
