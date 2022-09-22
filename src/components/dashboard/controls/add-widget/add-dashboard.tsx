@@ -3,10 +3,11 @@ import { useContext, useState } from "react";
 import { addWidget } from "../../../../actions";
 import { getWidgetTypeList } from "../../../../common/widget-common";
 import { NavLink, Button } from "../../../../styled-components";
-import ModalV2, {
+import {
   IconElement,
-  ModalTitle,
-} from "../../../../styled-components/modalv2";
+  ModalV2,
+  ModalV2Title as ModalTitle,
+} from "../../../../styled-components";
 import { DomainContext } from "../../domain/domain";
 
 export const AddDashboard = () => {
@@ -39,9 +40,9 @@ export const AddDashboard = () => {
         setOpenModal(newValue);
       }}
     >
-      <>
+      <div className="px-4 py-5 bg-white sm:p-6 ">
         <ModalTitle>Add Widget </ModalTitle>
-        <p className="mb-8">Please select a widget type to add</p>
+        <p className="mb-8">Please select a widget to add</p>
         <br />
         <div className="mb-8">
           {getWidgetTypeList().map((widgetType) => {
@@ -58,7 +59,7 @@ export const AddDashboard = () => {
             );
           })}
         </div>
-      </>
+      </div>
     </ModalV2>
   );
 };
